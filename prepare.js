@@ -1,9 +1,9 @@
 import {PDFLoader} from "@langchain/community/document_loaders/fs/pdf";
 
 
-export function indexTheDocument(filePath) {
+export async function indexTheDocument(filePath) {
     const loader = new PDFLoader(filePath);
-    const docs = loader.load();
+    const doc = await loader.load();
 
-    console.log(docs);
+    console.log(doc[0].pageContent);
 }
